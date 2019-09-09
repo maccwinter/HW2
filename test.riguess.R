@@ -13,6 +13,7 @@ factor(1/2)
 3^8
 #The ^ operater sits between two numbers. The ^ is an exponent function, it puts the first number to the power of the second number. So 3^8 puts 3 to the power of 8, which is 6561
 1:10
+#this is a sequence
 x <- 3; y <- 5; z <- 7
 x*y +z
 x*(y+z)
@@ -36,6 +37,10 @@ x^y
 #yielded 243. 
 switcheroo.if.then <-function(i){if (i ==x) "loon" else if (i ==y) "frog" else if (i ==z) "cat" else "wolf" }
 switcheroo.if.then(x)
-
-
+fish <-load(file="fish_data (1).Rdata")
+fish
+NROW(fish)
+#The number of rows is 2026
+NCOL(fish)
+#There are 23 columns
 
