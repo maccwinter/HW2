@@ -26,6 +26,16 @@ x*(y+z)
 m #NULL is a way of designatimg a certain argument as having no assigned values. A way to make an argument h NULL is to commamd as.null(h)
 h<-1:10
 as.null(h)
+print(x+y+z)
+#Below will be my integer division
+z%/%x
+#yielded 2. Now I will do the modulus 
+z%%x
+#yielded 1. Now I will do an exponent 
+x^y
+#yielded 243. 
+switcheroo.if.then <-function(i){if (i ==x) "loon" else if (i ==y) "frog" else if (i ==z) "cat" else "wolf" }
+switcheroo.if.then(x)
 
 
 
