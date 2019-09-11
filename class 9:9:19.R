@@ -37,5 +37,20 @@ df[,2]
 #gives me values in 2nd column 
 #mac pay better attention gosh. LOL. If i type right now, people will think I'm like really involved with what is going on OMG. 
 # to subset data, say (arbitrary letter) <- dataframname[dataframename$group == "group in datafram",]$nameofcolumnyouwantthennumberofrow
+v <-fish$year
+v
+#v is the year column. To know the data dype, I put class(v)
+class(v)
+#The data type for the year column is "character"
+str(fish)
+#Ok I got the structure. So basically the five types are: character, factor, numerical, integer, and POSIXct
+q <- fish$area_fac
+q
+l <- as.character(q)
+l
+class(l)
+#the class is character 
+#So I wrote as.character(l) where l denotes the area_fac data. Doing this converted that data from factor data to character data. :) 
+
 
 
