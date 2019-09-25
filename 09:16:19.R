@@ -108,17 +108,48 @@ o$DateTime <- as.POSIXct(strptime(x=o$DateTime, format = "%m/%d/%y %H:%M:%S", tz
 head(o)
 str(head(o))
 str(head(o$DateTime))
-install.packages("openxlsx")
-library("openxlsx")
-#This is for opening excel files, which we decided not to do. We saved the excel file as a CV file. 
+o$dateTime <- o$dateTime - time.zone.change * 3600 
+#Look into the above thing more... I zoned out when she explained it. 
 
-au <-read.table(file="Aurelia_SEAMAP_2012-2018_30minCell.csv", sep=",", header=T, stringsAsFactors = F)
-head(au)
+#9/23/16 
+
+#Load r data set with load("filename")
+
+#for .txt file 
+install.packages("data.table")
+library(data.table)
+d <- fread(input= "aurelia_15minCell_statareas.txt", sep =",", header = T, stringsAsFactors = F )
+d
+
+d <- read.csv(file = "aurelia_15minCell_statareas.txt", header = T, sep=",", stringsAsFactors = F)
+d
+d <- read.table(file= "aurelia_15minCell_statareas.txt", sep =",", stringsAsFactors = F)
+install.packages("tidyverse")
+library(tidyverse)
+d4 <- read_csv(file="aurelia_15minCell_statareas.txt")
+head(d4)
 
 
+d3 <- load("aurelia_15minCell_statareas.Rdata")
+head(d3)
+a
+d3
+a
+save(d3, file="aurelia_15minCell_statareas.txt")
+d3
+d3 <- a
+d3
+a
+a<-1
+a
+d3
+a
+#excel files 
+library(readxl)
+e <- read_xlsx(path="Aurelia_SEAMAP_2012-2018_30minCell.xlsx", sheet =1, col_names = T)
+e
+library(readxl)
+#Saving data as an ".Rdata" file type 
+#save object of interest and write out the file name with the .Rdata file extension type.
 
-
-
-
-
-
+save(d3, file ="aurelia_data.Rdata")
