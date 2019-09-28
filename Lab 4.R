@@ -34,6 +34,7 @@ d20 <- read_csv("GLFREC.csv")
 d21 <- read_csv("lg_camera_class_groupings_20170113_phylo_orderd.csv")
 d22 <- read_xlsx("transect_towtime.xlsx")
 d23 <- read_xlsx("NameTranslator_table20140330.xlsx")
+d24 <- read_csv("STAREC.csv")
 #DONE
 
 
