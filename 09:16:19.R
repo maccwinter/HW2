@@ -206,7 +206,7 @@ head(c3)
 m1 <- subset(x=f, f$depth_fac == "Deep", select = c("transect.id","area_fac"))
 m2 <- subset(x=f, f$depth_fac == "Deep", select = c("transect.id", "depth_fac","parcel.length.m","group"))
 #We are adding a sequence so that later R will know how many rows each column has. 
-#seq(diff between subsequent values (such as 1, 0.5), what is this sequence assigned to, by?)
+#seq(dstart value, what is this sequence assigned to, by what value are subsequent values separated (intervals of 1, 0.5 etc.))
 m1$seq <- seq(1, nrow(m1),1)
 m2$seq <- seq(1,nrow(m2),1)
 
@@ -220,11 +220,11 @@ nrow(mj)
 
 #right join aligns x to y, and left join does vice versa. 
 
-#what does cut function do? 
-
-
-
-
+#what does cut function do? Check out below
+v <-seq(5,20,0.5)
+vc <- cut(x=v, breaks =seq(5,20,1), include.lowest = T)
+v
+vc
 
 
 
