@@ -173,7 +173,7 @@ fd5 <- f[which(f$depth_fac == "Deep" & f$area_fac =="East" & f$yr_fac !="2014"),
 head(fd5)
 
 fshallow <- f[f$depth_fac == "Shallow",]
-f2shallow <- subset(x=f, fdepth_fac == "Shallow")
+f2shallow <- subset(x=f, depth_fac == "Shallow")
 feast <- subset(x=f, depth_fac == "East")
 f2east <- f[f$depth_fac == "East",]
 fpatches <- f[f$depth_fac == "Patches",]
@@ -226,9 +226,15 @@ vc <- cut(x=v, breaks =seq(5,20,1), include.lowest = T)
 v
 vc
 
+#10/2/19 
 
+library(tidyverse)
+install.packages("nutshell")
+library(nutshell)
 
-
+#data we will be using today 
+data("batting.2008")
+d <- batting.2008
 
 
 
