@@ -51,8 +51,9 @@ o4 <- fs[2:10,]
 #bind these individual objects back together using function"rbind"
 o <- rbind(o1,o2,o3,o4)
 
-#now the first 3 rows are duplicate observations 
+o#now the first 3 rows are duplicate observations 
 no.dups <-o[!duplicated(o),]
+no.dups
 #and now the duplicated are gone 
 
 dups <- o[duplicated(o),]
