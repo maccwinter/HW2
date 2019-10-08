@@ -100,7 +100,7 @@ dataframe3 <- merge(dmean2,dsd2, by="seq")
 head(dataframe3)
 dataframe4 <- right_join(x=transect2.0, y=dataframe3, by = "seq")
 #Question 15 ---- 
-pd3 <- tapply(X=f$parcel.density.m3, INDEX = f$transect.id, FUN=length)
+pd3 <- tapply(X=f$parcel.density.m3, INDEX = f$transect.id, FUN = length)
 head(pd3)
 pd3. <- as.data.frame(pd3)
 head(pd3.)
@@ -119,7 +119,5 @@ nrow(wow)
 ncol(wow)
 #Question 17 
 
-
-
-
-
+length5.0 <- tapply(X=f$parcel.length.m, INDEX = list(f$transect.id), FUN=fivenum)
+length5.0
