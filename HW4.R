@@ -98,11 +98,26 @@ head(transect3)
 #Question 14 ---- 
 dataframe3 <- merge(dmean2,dsd2, by="seq")
 head(dataframe3)
-class(dataframe3)
-class(transect2)
+dataframe4 <- right_join(x=transect2.0, y=dataframe3, by = "seq")
+#Question 15 ---- 
+pd3 <- tapply(X=f$parcel.density.m3, INDEX = f$transect.id, FUN=length)
+head(pd3)
+pd3. <- as.data.frame(pd3)
+head(pd3.)
+pd3.$seq <- 1:39
+head(pd3.)
+colnames(pd3.) <- c("count", "seq")
+head(pd3.)
 
-dataframe4 <- right_join(x=transect2, y=dataframe3, by = "seq")
+#Question 16 
+wow <- right_join(dataframe4,pd3., by="seq")
 
+head(wow)
+wow[,c("transect2","seq")] <- NULL
+head(wow)
+nrow(wow)
+ncol(wow)
+#Question 17 
 
 
 
