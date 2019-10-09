@@ -12,9 +12,8 @@ pdmd
 nrow(pdmd)
 pdmd$seq <- 1:39
 #there are 39
-?as.data.frame 
 #Question 3----
-colnames(pdmd) <-   "parcel density mean"
+colnames(pdmd) <-  c("density.mean", "seq")
 head(pdmd)
 #Question 4----
 transect <- rownames(pdmd)
@@ -22,7 +21,7 @@ transect
 #Question 5----
 p.d.st <- tapply(X = f$parcel.density.m3, INDEX =(f$transect.id), FUN=sd)
 pdstd <-as.data.frame(p.d.st)
-colnames(pdstd) <-  "parcel density st.dev"
+colnames(pdstd) <-  "density.st.dev"
 transect <- rownames(pdstd)
 transect
 nrow(pdstd)
@@ -32,31 +31,31 @@ head(transect)
 #There are 39 rows 
 transect$seq <- 1:39
 #Question 6 ----
-?merge
 head(pdstd)
 head(pdmd)
-newdataframe <- merge(transect, c(pdstd,pdmd), by="seq")
-head(newdataframe)
-nrow(newdataframe)
+parcel.density <- merge(transect, c(pdstd,pdmd), by="seq")
+head(parcel.density)
+parcel.density[,c("seq","seq.1")] <- NULL
+head(parcel.density)
 #There are 1521 
-head(newdataframe)
-colnames(newdataframe) <- c("transect", "standard dev", "density")
-head(newdataframe)
+head(parcel.density)
+colnames(parcel.density) <- c("transect", "standard.dev", "mean")
+head(parcel.density)
 #Question 7 ----
 p.d.c <- tapply(X = f$parcel.density.m3, INDEX = list(f$transect.id), FUN=length)
 p.d.c
 pdcd <- as.data.frame(p.d.c)
 head(pdcd)
-colnames(pdcd) <- "observation count"
+colnames(pdcd) <- "count"
 head(pdcd)
 nrow(pdcd)
-nrow(newdataframe)
 pdcd$seq <- 1:39
 #Question 8 ----
-newdataframe1 <- merge(newdataframe, pdcd, by="seq")
+parcel.density$seq <- 1:39
+newdataframe1 <- merge(parcel.density, pdcd, by="seq")
 head(newdataframe1)
 nrow(newdataframe1)
-newdataframe1[,c("seq","seq.1", "transect.y")] <- NULL
+newdataframe1[,"seq"] <- NULL
 head(newdataframe1)
 colnames(newdataframe1) <- c("transect.id","density.stdv", "density.mean", "obs.count")
 head(newdataframe1)
@@ -99,6 +98,9 @@ head(transect3)
 dataframe3 <- merge(dmean2,dsd2, by="seq")
 head(dataframe3)
 dataframe4 <- right_join(x=transect2.0, y=dataframe3, by = "seq")
+head(dataframe4)
+dataframe4[,"seq"] <- NULL
+head(dataframe4)
 #Question 15 ---- 
 pd3 <- tapply(X=f$parcel.density.m3, INDEX = f$transect.id, FUN = length)
 head(pd3)
@@ -119,5 +121,4 @@ nrow(wow)
 ncol(wow)
 #Question 17 
 
-length5.0 <- tapply(X=f$parcel.length.m, INDEX = list(f$transect.id), FUN=fivenum)
-length5.0
+length5.0 <- f %>% group_by(f$transect.id, f$parcel.id) %>% summarise()
