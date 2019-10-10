@@ -98,26 +98,24 @@ dataframe4[,"seq"] <- NULL
 head(dataframe4)
 #Question 15 ---- 
 parceldensity.c.2<- tapply(X=f$parcel.density.m3, INDEX = f$transect.id, FUN = length)
-head(parceldensity.m.2)
-parceldensity.m.2.d <- as.data.frame(parceldensity.m.2)
-head(parceldensity.m.2.d)
-parceldensity.m.2.d$seq <- 1:39
-head(parceldensity.m.2.d)
-colnames(pd3.) <- c("count", "seq")
-head(pd3.)
+head(parceldensity.c.2)
+parceldensity.c.2.d <- as.data.frame(parceldensity.c.2)
+head(parceldensity.c.2.d)
+parceldensity.c.2.d$seq <- 1:39
+head(parceldensity.c.2.d)
+colnames(parceldensity.c.2.d) <- c("count", "seq")
+head(parceldensity.c.2.d)
 
 #Question 16 
-wow <- right_join(dataframe4,pd3., by="seq")
-
+dataframe4$seq <- 1:39
+wow <- right_join(dataframe4,parceldensity.c.2.d, by="seq")
 head(wow)
 wow[,c("transect2","seq")] <- NULL
 head(wow)
 nrow(wow)
-ncol(wow)
 #Question 17 
 
 length6.0 <- f %>% group_by(f$transect.id, f$parcel.id) %>% summarise(min = min(f$parcel.length.m),low95 = quantile(f$parcel.length.m,0.95),median =median(f$parcel.length.m), up95 = (quantile(f$parcel.length.m,1)-quantile(f$parcel.length.m,0.95)),max = max(f$parcel.length.m) )
-quantile(f$parcel.length.m,0.05)
 
 head(length6.0)
 
