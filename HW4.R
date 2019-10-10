@@ -121,4 +121,12 @@ nrow(wow)
 ncol(wow)
 #Question 17 
 
-length5.0 <- f %>% group_by(f$transect.id, f$parcel.id) %>% summarise()
+length6.0 <- f %>% group_by(f$transect.id, f$parcel.id) %>% summarise(min = min(f$parcel.length.m),low95 = quantile(f$parcel.length.m,0.95),median =median(f$parcel.length.m), up95 = (quantile(f$parcel.length.m,1)-quantile(f$parcel.length.m,0.95)),max = max(f$parcel.length.m) )
+quantile(f$parcel.length.m,0.05)
+
+head(length6.0)
+
+
+
+
+
